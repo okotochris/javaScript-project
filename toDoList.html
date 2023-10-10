@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>ToDoList</title>
+    <style>
+        
+        .display {
+            border-width: 15px;
+            border-style: ridge;
+            border-color: blue;
+            width: 400px;
+            padding: 10px;
+            align-items: center;
+            text-align: center;
+            margin: auto auto;
+            color: blueviolet;
+
+        }
+
+        .display input {
+            height: 30px;
+            width:350px;
+            font-size: 15px;
+            border-color: blue;
+            outline:0px;
+            border:0px;
+
+        }
+        .input_container{
+            border-width:5px;
+            border-style:solid;
+            border-radius:10px;
+            margin:3px;
+        }
+
+        .body {
+            margin: auto auto;
+            padding: 10px;
+            width: 570px;
+            color: black;
+            text-align: center;
+        }
+
+        .div li {
+            list-style-type: decimal;
+            padding: 5px;
+        }
+
+        .div {
+            font-size: 20px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            width: 70px;
+            height: 30px;
+            border-width: 0px;
+            border-radius:5px;
+            box-shadow:(33, 3);
+        }
+        .body button{
+            height:25px;
+            width:50px;
+        }
+
+        button:hover {
+            background: white;
+            color: rgb(0, 0, 0);
+            background:rgb(128, 128, 215);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display">
+            <h1>TO DO LIST</h1>
+            <div class="input_container">
+                <input placeholder="Enter to do items" id="text" ></input>
+            </div>
+            <button id="add">ADD</button>
+            <button onclick='text.value=" "'>CLEAR</button>
+
+        </div>
+        <div class="body">
+            <div class="div">
+</div>
+        </div>
+    </div>
+    <script>
+        let text = document.querySelector('#text')
+        let div = document.querySelector('.div');
+        let add = document.querySelector('#add');
+
+        add.onclick = () => {
+
+            let inputValue = document.createTextNode(text.value);
+            let li = document.createElement('li');
+            let button = document.createElement("button");
+            let input_checker = document.createElement("input");
+            let p = document.createElement("p");
+
+            li.appendChild(inputValue);
+            li.appendChild(input_checker)
+            li.appendChild(button);
+            div.appendChild(li);
+
+            input_checker.type = 'checkbox'
+            button.innerHTML = 'x';
+
+
+            button.onclick = () => {
+                li.parentNode.removeChild(li);
+            }
+        }
+    </script>
+</body>
+
+</html>
